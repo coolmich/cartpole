@@ -1,4 +1,4 @@
-from naive_dqn import *
+from double_dqn import *
 import gym
 
 # Hyper Parameters
@@ -11,7 +11,7 @@ API_KEY = 'sk_0uDRqRcmQgiyGI5z9MyHCw'
 def main():
   # initialize OpenAI Gym env and dqn agent
   env = gym.make(ENV_NAME)
-  agent = NaiveDqn(env)
+  agent = DoubleDqn(env)
 
   for episode in xrange(EPISODE):
     # print episode
