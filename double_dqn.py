@@ -71,7 +71,8 @@ class DoubleDqn(object):
         if len(self.replay_buffer) > REPLAY_SIZE:
             self.replay_buffer.popleft()
         if len(self.replay_buffer) > BATCH_SIZE:
-            self.train_Q_network()
+            for i in range(5):
+                self.train_Q_network()
 
     def train_Q_network(self):
         minibatch = random.sample(self.replay_buffer, BATCH_SIZE)
@@ -108,6 +109,9 @@ class DoubleDqn(object):
         return np.argmax(self.primary_net.q_val.eval(feed_dict={self.primary_net.state_input: [state]})[0])
 
     def get_epsilon(self):
-        return 1.0/(self.episode_num/200.0 + 1)
+        return 1.0/(self.episode_num/200.0 + 2)
+
+    def train(self):
+        pass
 
 

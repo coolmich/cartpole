@@ -106,3 +106,6 @@ class NaiveDqn(object):
     def get_epsilon(self):
         return 1.0/(self.episode_num/100.0 + 1)
         # return (200 - self.performance)/200.0
+
+    def train(self):
+        pass
